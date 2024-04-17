@@ -1,0 +1,15 @@
+ <%- include('../partials/header.ejs')%>
+<article>
+    <h1 style="text-align:center">Login</h1>
+    <!-- <h4>Don't have an account? <a href="/users/new">Click here to sign up.</a></h4> -->
+    <form action="/users/login" method="POST" style="text-align:center">
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+    
+    <label for="password">Password</label><br>
+    <input type="password" id="password" name="password" minlength = "8" maxlength = "64" required><br><br>
+    
+    <button>Login</button><br>
+</form>  
+</article>
+<%- include('../partials/footer.ejs')%>

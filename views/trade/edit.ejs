@@ -1,0 +1,76 @@
+<%- include('../partials/header.ejs')%>
+    
+    <body>
+        <article>
+            <h2>Edit Appointment</h2>
+            <form id="new-trade-form" method = "POST" action = "/trades/<%= trade.id%>?_method=PUT">
+                <label for="category">Physician/PA </label>
+                <select id="category" name="category" required>
+                    <option value="<%= trade.category%>"><%= trade.category%></option>
+                    <%if(trade.category != "Mike Folken, MD") {%>
+                        <option value="Mike Folken, MD">Mike Folken, MD</option>
+                    <%}%>
+                    <%if(trade.category != "Tabitha Holiday, MD") {%>
+                        <option value="Tabitha Holiday, MD">Tabitha Holiday, MD</option>
+                    <%}%>
+                    <%if(trade.category != "Briana Alexander, MD, OB-GYN") {%>
+                        <option value="Briana Alexander, MD, OB-GYN">Briana Alexander, MD, OB-GYN</option>
+                    <%}%>
+                    <%if(trade.category != "Steve Perry MD") {%>
+                        <option value="Steve Perry, MD">Steve Perry, MD</option>
+                    <%}%>
+                    <%if(trade.category != "Marcus Lee, PA") {%>
+                        <option value="Marcus Lee, PA">Marcus Lee, PA</option>
+                    <%}%>
+                    <%if(trade.category != "Brenda Agyemang, MD, OB-GYN") {%>
+                        <option value="Brenda Agyemang, MD, OB-GYN">Brenda Agyemang, MD, OB-GYN</option>
+                    <%}%>
+                </select><br>
+                <br>
+                <label for="name">Patient name </label>
+                <input type="text" id="name" name="name" value="<%= trade.name%>" required><br>
+                <br>
+                <label for="size">Date & Time </label>
+                <input type="text" id="size" name="size" value="<%= trade.size%>" required><br>
+                <br>
+                <label for="color">Phone number </label>
+                <input type="text" id="color" name="color" value="<%= trade.color%>" required><br>
+                <br>
+                <label for="condition">Condition </label>
+                <select id="condition" name="condition">
+                    <option value="<%= trade.condition%>"><%= trade.condition%></option>
+                    <%if(trade.condition != "New") {%>
+                        <option value="New">New</option>
+                    <%}%>
+                    <%if(trade.condition != "Like New") {%>
+                        <option value="Like New">Like New</option>
+                    <%}%>
+                    <%if(trade.condition != "Good") {%>
+                        <option value="Good">Good</option>
+                    <%}%>
+                    <%if(trade.condition != "Fair") {%>
+                        <option value="Fair">Fair</option>
+                    <%}%>
+                </select><br>
+                <br>
+                <label for="status">Appointment Status </label>
+                <select id="status" name="status" required>
+                    <option value="<%= trade.status%>"><%= trade.status%></option>
+                    <%if(trade.status != "Upcoming") {%>
+                        <option value="Upcoming">Upcoming</option>
+                    <%}%>
+                    <%if(trade.status != "In Progress") {%>
+                        <option value="In Progress">In Progress</option>
+                    <%}%>
+                    <%if(trade.status != "Completed") {%>
+                        <option value="Completed">Completed</option>
+                    <%}%>
+                </select><br>
+                <br>
+                <label for="description">Description/Notes:</label><br>
+                <textarea id="description" name="details" rows="15" placeholder="Enter in any patient and appointment notes & details here" required minlength="10"><%= trade.details%></textarea><br>
+                <br>
+                <input type="submit" id="new-trade-submit" value="Save Appointment">
+            </form>
+        </article>
+        <%- include('../partials/footer.ejs')%>

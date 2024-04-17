@@ -1,0 +1,54 @@
+<%- include('../partials/header.ejs')%>
+<article>
+    <h1><%= user.firstName%>'s Dashboard</h1>
+    <section>
+        <h2>My Patient Appointments</h2>
+        <%if(trades.length) {%>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            <%trades.forEach(trade=> {%>
+                <tr>
+                    <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
+                    <td><%=trade.size%></td>
+                    <td><%=trade.status%></td>
+                    <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button>
+                        <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete</button></form></td>
+                </tr>
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>You have no appointments yet. <a href='/trades/newTrade'>Create an Appointment</a></p>
+        <%}%>
+    </section>
+
+    <!-- <section>
+        <h2>Your watched ShoeTrades</h2>
+        <%if(watches.length) {%>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            <%watches.forEach(watch=> {%>
+                <tr>
+                    <td><a href = '/trades/<%= watch.tradeId%>'><%= watch.name%></a></td>
+                    <td><%=watch.category%></td>
+                    <td><%=watch.status%></td>
+                </tr> 
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>You are not watching any trades right now.</p>
+        <%}%>
+    </section> -->
+    
+</article>
+
+<%- include('../partials/footer.ejs')%>

@@ -1,0 +1,42 @@
+<%- include('../partials/header.ejs')%>
+    
+    <body>
+        <article>
+            <h2>Create a new Appointment</h2>
+            <form id="new-trade-form" action = '/trades' method = 'POST'>
+                <label for="category">Physician/PA </label>
+                <select id="category" name="category" required>
+                    <option hidden disabled selected value>Select a physician or PA</option>
+                    <option value="Mike Folken, MD">Mike Folken, MD</option>
+                    <option value="Tabitha Holiday, MD">Tabitha Holiday, MD</option>
+                    <option value="Briana Alexander, MD, OB-GYN">Briana Alexander, MD, OB-GYN</option>
+                    <option value="Steve Perry, MD">Steve Perry, MD</option>
+                    <option value="Marcus Lee, PA">Marcus Lee, PA</option>
+                    <option value="Brenda Agyemang, MD, OB-GYN">Brenda Agyemang, MD, OB-GYN</option>
+                </select><br>
+                <br>
+                <label for="name">Patient name </label>
+                <input type="text" id="name" name="name" required><br>
+                <br>
+                <label for="size">Date & Time </label>
+                <input type="text" id="size" name="size" required><br>
+                <br>
+                <label for="color">Phone number </label>
+                <input type="text" id="color" name="color" required><br>
+                <br>
+                <label for="condition">Condition </label>
+                <select id="condition" name="condition">
+                    <option hidden disabled selected value>Select a condition</option>
+                    <option value="New">New</option>
+                    <option value="Like New">Like New</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select><br>
+                <br>
+                <label for="description">Description/Notes:</label><br>
+                <textarea id="description" name="details" rows="15" placeholder="Enter in any patient and appointment notes & details here" required minlength="10"></textarea><br>
+                <br>
+                <input type="submit" id="new-trade-submit" value="Create Appointment">
+            </form>
+        </article>
+        <%- include('../partials/footer.ejs')%>

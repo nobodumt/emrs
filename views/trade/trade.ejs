@@ -1,0 +1,36 @@
+<%- include('../partials/header.ejs')%>
+<body>
+    <article>
+        <h1><%= trade.name%></h1>
+        <p><small> <%= trade.status%> Appointment with <%= trade.category%> | <%= trade.size%></small></p>
+        <p><small> Created by <%= trade.creator.firstName + ' ' + trade.creator.lastName%>
+        <!-- <%if(user != trade.creator._id){%>
+            <form>
+                <button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/trade">Trade</button>
+                <button type = "submit" formmethod = "POST" formaction = "/watches/<%= trade.id%>">Watch</button>
+            </form>
+        <%}%> -->
+        <!-- <img id="shoe-trade-image" src="<%= trade.image%>" alt="shoe image" width="250" height="313"> -->
+        <div>
+            <%if(user == trade.creator._id){%> <!--|| user.email == 'rec@novocare.com' -->
+                <form>
+                    <button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit Appointment</button>
+                    <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete Appointment</button>
+                </form>
+            <%}%>
+        </div>
+        <div>
+            
+            <h2>Patient Info</h2>
+            <ul>
+                <!--<li>Physician/PA: <%= trade.category%></li>
+                <li>Date & Time: <%= trade.size%></li>-->
+                <li>Phone number: <%= trade.color%></li>
+                <li>Email address: </li><!-- need to make a text box on the form for email address-->
+                <li>Condition: <%= trade.condition%></li>
+            </ul>
+            <h2>Description/Notes</h2>
+            <p><%= trade.details%></p>
+        </div>
+    </article>
+    <%- include('../partials/footer.ejs')%>

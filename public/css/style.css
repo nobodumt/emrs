@@ -1,0 +1,96 @@
+html {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body {
+    margin: 0;
+    background-color: whitesmoke;
+}
+
+header {
+    background-color: lightskyblue;
+    padding: 10px 30px 5px;
+    position: sticky;
+    top: 0px;
+}
+
+#user-nav {
+    display: inline;
+    float: right;
+}
+
+#main-nav {
+    background-color: lightskyblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 1px;
+}
+
+nav a {
+    color: black;
+}
+
+#description-textbox {
+    width: 500px;
+    height: 150px;
+}
+
+#shoe-trade-image {
+    border: 2px solid lightskyblue;
+}
+
+article {
+    padding: 15px;
+    /*padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 80px;*/
+}
+
+section {
+    padding: 10px;
+}
+
+div {
+    padding: 10px;
+}
+
+#new-trade-form {
+    padding-bottom: 10px;
+}
+
+#new-trade-submit {
+    background-color: lightskyblue;
+}
+
+footer {
+    background-color: lightskyblue;
+    padding: 10px;
+}
+
+#footer-links {
+    float: right;
+    display: inline;
+    padding-right: 30px;
+}
+
+nav a {
+    padding: 5px;
+}
+
+.success {
+    background: green;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    margin-top: 20px;
+  }
+  
+  .error {
+    background: red;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px;
+    margin-top: 20px;
+  }

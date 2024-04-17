@@ -1,0 +1,49 @@
+<%- include('../partials/header.ejs')%>
+    <body>
+        <article>
+        <section>
+            <h2>Upcoming Appointments</h2>
+            <%if(trades.length) {%>
+              <%trades.forEach(trade=> {%>    
+                <%if(trade.status === "Upcoming"){%>
+                   <ul>
+                    <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
+                   </ul>
+                <%}%>
+              <%});
+            } else {%>
+                <p>No upcoming appointments</p>
+            <%}%>
+        </section>
+
+        <section>
+            <h2>Appointments In Progress</h2>
+            <%if(trades.length) {%>
+                <%trades.forEach(trade=> {%>    
+                  <%if(trade.status === "In Progress"){%>
+                    <ul>
+                      <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
+                     </ul>
+                  <%}%>
+                <%});
+              } else {%>
+                  <p>No currently in progress appointments</p>
+              <%}%>
+        </section>
+
+        <section>
+            <h2>Completed Appointments</h2>
+            <%if(trades.length) {%>
+                <%trades.forEach(trade=> {%>    
+                  <%if(trade.status === "Completed"){%>
+                    <ul>
+                      <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
+                     </ul>
+                  <%}%>
+                <%});
+              } else {%>
+                  <p>No completed appointments</p>
+              <%}%>
+        </section>
+        </article>
+        <%- include('../partials/footer.ejs')%>
