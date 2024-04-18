@@ -1,4 +1,5 @@
 const model = require('../models/trade');
+const User = require('../models/user');
 
 // GET /trades: send all trades to the user
 exports.index = (req, res, next)=> {
@@ -8,8 +9,14 @@ exports.index = (req, res, next)=> {
 };
 
 // GET /trades/newTrade: send html form for creating new trade
-exports.new = (req, res) => {
-    res.render('./trade/newTrade');
+exports.new = (req, res, next) => {
+    //res.render('./trade/newTrade');
+    let id = req.session.user;
+    User.findById(id)
+    .then(user=>{
+            return res.render('./trade/newTrade', {user});
+    })
+    .catch(err=>next(err));
 };
 
 //POST /trades: create a new trade

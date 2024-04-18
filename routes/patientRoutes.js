@@ -1,3 +1,4 @@
+// patientRoutes is not currently being used, but created the file in case I want to move routes for patient pages here later.
 const express = require('express');
 const controller = require('../controllers/mainController');
 const {isLoggedIn} = require('../middlewares/auth');

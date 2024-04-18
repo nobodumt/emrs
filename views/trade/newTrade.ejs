@@ -6,13 +6,8 @@
             <form id="new-trade-form" action = '/trades' method = 'POST'>
                 <label for="category">Physician/PA </label>
                 <select id="category" name="category" required>
-                    <option hidden disabled selected value>Select a physician or PA</option>
-                    <option value="Mike Folken, MD">Mike Folken, MD</option>
-                    <option value="Tabitha Holiday, MD">Tabitha Holiday, MD</option>
-                    <option value="Briana Alexander, MD, OB-GYN">Briana Alexander, MD, OB-GYN</option>
-                    <option value="Steve Perry, MD">Steve Perry, MD</option>
-                    <option value="Marcus Lee, PA">Marcus Lee, PA</option>
-                    <option value="Brenda Agyemang, MD, OB-GYN">Brenda Agyemang, MD, OB-GYN</option>
+                    <!-- <option hidden disabled selected value>Select a physician or PA</option> -->
+                    <option value="<%= user.firstName%> <%= user.lastName%>"><%= user.firstName%> <%= user.lastName%></option>
                 </select><br>
                 <br>
                 <label for="name">Patient name </label>
