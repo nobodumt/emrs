@@ -11,4 +11,10 @@ router.get('/page2', controller.page2);
 // GET /contact
 router.get('/page1', controller.page1);
 
+// GET /patients (all patients in EMRS)
+router.get('/patients', controller.patients);
+
+//GET /patients/:id: send details of patient identified by id
+router.get('patients/:id', controller.showPatient);
+
 module.exports = router;

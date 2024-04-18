@@ -15,17 +15,14 @@
             <%} else {%>
                 <a href="/trades/newTrade">Create Appointment</a>
                 <a href="/trades">All Appointments</a>
+                <a href="/patients">All Patients</a>
                 <a href="/users/profile">My Dashboard</a>
                 <a href="/users/logout">Logout</a>
             <%}%>
         </nav>
 
-         <nav id="main-nav">
-            <%if(!user) {%>
-                <a href="/">Home</a>
-            <%} else {%>
-                <a href="/users/profile">Welcome <%= user.firstName%></a>
-            <%}%>
+        <nav id="main-nav">
+            <a href="/">Home</a>
         </nav> 
     </header>
 

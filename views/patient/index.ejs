@@ -1,0 +1,15 @@
+<%- include('../partials/header.ejs')%>
+    <body>
+        <article>
+            <h2>All Patients</h2>
+            <%if(patients.length) {%>
+              <%patients.forEach(patient=> {%>    
+                <ul>
+                    <li><a href = "/patients/<%= patient._id%>" <p><%= patient.first_name%> <%= patient.last_name%></p></a></li>
+                </ul>
+              <%});
+            } else {%>
+                <p>No patients</p>
+            <%}%>
+        </article>
+<%- include('../partials/footer.ejs')%>

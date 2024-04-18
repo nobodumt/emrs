@@ -4,6 +4,7 @@ const tradeRoutes = require('./routes/tradeRoutes');
 const mainRoutes = require('./routes/mainRoutes');
 const userRoutes = require('./routes/userRoutes');
 const watchRoutes = require('./routes/watchRoutes');
+//const patientRoutes = require('./routes/patientRoutes');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const mysql = require('mysql');
@@ -54,6 +55,7 @@ app.use('/', mainRoutes);
 app.use('/trades', tradeRoutes);
 app.use('/users', userRoutes);
 app.use('/watches', watchRoutes);
+//app.use('/patients', patientRoutes);
 
 app.use((req, res, next) => {
     let err = new Error('The server cannot locate ' + req.url);
