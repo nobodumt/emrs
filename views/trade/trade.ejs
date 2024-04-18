@@ -11,12 +11,17 @@
             </form>
         <%}%> -->
         <div>
-            <%if(user == trade.creator._id){%> <!--|| user.email == 'rec@novocare.com' -->
+            <%if(user == trade.creator._id){%> <!--TO: add this for receptionist: || user.email == 'rec@novocare.com' -->
                 <form>
                     <button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit Appointment</button>
-                    <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete Appointment</button>
-                    <button type = "submit">Start Appointment</button>
-                    <button type = "submit">Complete Appointment</button>
+                    <%if(trade.status === "Upcoming" ){%>
+                        <!-- TODO: need to have pop up to confirm user actually wants to delete the appointment-->
+                        <button type = "submit">Start Appointment</button>
+                        <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete Appointment</button>
+                    <%}%>
+                    <%if(trade.status === "In Progress" ){%>
+                        <button type = "submit">Complete Appointment</button> <!-- TODO: have a complete appointment form in user will have to choose either completed or no-show -->
+                    <%}%>
                 </form>
             <%}%>
         </div>

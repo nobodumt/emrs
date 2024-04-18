@@ -1,11 +1,11 @@
 const express = require('express');
 const controller = require('../controllers/tradeController');
-const {isLoggedIn, isCreator} = require('../middlewares/auth');
+const {isLoggedIn, isCreator, isAdmin} = require('../middlewares/auth');
 const{validateId, validateTrade} = require('../middlewares/validator');
 const router = express.Router();
 
-// GET /trades: send all trades to the user
-router.get('/', controller.index);
+// GET /trades: send all appointments to the user
+router.get('/', isLoggedIn, isAdmin, controller.index);
 
 // GET /trades/newTrade: send html form for creating new trade
 router.get('/newTrade', isLoggedIn, controller.new);

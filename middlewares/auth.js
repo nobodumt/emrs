@@ -1,4 +1,6 @@
 const Trade = require('../models/trade');
+var ObjectId = require('bson').ObjectId;
+var adminId = new ObjectId('6455b94454180c4f048fae5d');
 
 exports.isGuest = (req, res, next)=> {
     if(!req.session.user) {
@@ -37,4 +39,13 @@ exports.isCreator = (req, res, next) =>{
         }
     })
     .catch(err=>next(err));
+};
+// ensures the user account is an administrative account like the receptionist's account for instance
+exports.isAdmin = (req, res, next)=> {
+    if(req.session.user == adminId) {
+        return next();
+    } else {
+        req.flash('error', 'You are not authorized for access');
+        return res.redirect('back');
+    }
 };

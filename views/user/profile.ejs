@@ -12,17 +12,47 @@
                     <th></th>
                 </tr>
             <%trades.forEach(trade=> {%>
+                <%if(trade.status === "Upcoming" || trade.status === "In Progress") {%>
                 <tr>
                     <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
                     <td><%=trade.size%></td>
                     <td><%=trade.status%></td>
                     <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button>
-                        <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete</button></form></td>
+                        <%if(trade.status === "Upcoming" ){%>
+                            <button type = "submit">Start</button>
+                            <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete</button>
+                        <%}%>
+                        </form></td>
                 </tr>
+                <%}%>
             <%});%>
             </table>
         <%} else {%>
-            <p>You have no appointments yet. <a href='/trades/newTrade'>Create an Appointment</a></p>
+            <p>You have no upcoming or in-progress appointments. <a href='/trades/newTrade'>Create an Appointment</a></p>
+        <%}%>
+    </section>
+
+    <section>
+        <h2>Completed Appointments</h2>
+        <%if(trades.length) {%>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th></th>
+                </tr>
+            <%trades.forEach(trade=> {%>
+                <%if(trade.status === "Completed") {%>
+                <tr>
+                    <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
+                    <td><%=trade.size%></td>
+                    <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button></form></td>
+                </tr>
+                <%}%>
+            <%});%>
+            </table>
+        <%} else {%>
+            <p>You haven't completed any appointments yet.</p>
         <%}%>
     </section>
 
