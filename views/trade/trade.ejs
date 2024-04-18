@@ -10,7 +10,6 @@
                 <button type = "submit" formmethod = "POST" formaction = "/watches/<%= trade.id%>">Watch</button>
             </form>
         <%}%> -->
-        <!-- <img id="shoe-trade-image" src="<%= trade.image%>" alt="shoe image" width="250" height="313"> -->
         <div>
             <%if(user == trade.creator._id){%> <!--|| user.email == 'rec@novocare.com' -->
                 <form>
@@ -25,11 +24,8 @@
             
             <h2>Patient Info</h2>
             <ul>
-                <!--<li>Physician/PA: <%= trade.category%></li>
-                <li>Date & Time: <%= trade.size%></li>-->
                 <li>Phone number: <%= trade.color%></li>
-                <li>Email address: </li><!-- need to make a text box on the form for email address-->
-                <!-- <li>Condition: <%= trade.condition%></li> -->
+                <!--<li>Email address: </li> need to make a text box on the form for email address-->
             </ul>
             <h2>Description/Notes</h2>
             <p><%= trade.details%></p>

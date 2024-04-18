@@ -36,23 +36,6 @@
                 <label for="color">Phone number </label>
                 <input type="text" id="color" name="color" value="<%= trade.color%>" required><br>
                 <br>
-                <label for="condition">Condition </label>
-                <select id="condition" name="condition">
-                    <option value="<%= trade.condition%>"><%= trade.condition%></option>
-                    <%if(trade.condition != "New") {%>
-                        <option value="New">New</option>
-                    <%}%>
-                    <%if(trade.condition != "Like New") {%>
-                        <option value="Like New">Like New</option>
-                    <%}%>
-                    <%if(trade.condition != "Good") {%>
-                        <option value="Good">Good</option>
-                    <%}%>
-                    <%if(trade.condition != "Fair") {%>
-                        <option value="Fair">Fair</option>
-                    <%}%>
-                </select><br>
-                <br>
                 <label for="status">Appointment Status </label>
                 <select id="status" name="status" required>
                     <option value="<%= trade.status%>"><%= trade.status%></option>

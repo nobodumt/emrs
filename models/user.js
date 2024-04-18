@@ -7,6 +7,8 @@ const userSchema = new Schema({
     lastName: {type: String, required: [true, 'last name is required']},
     email: { type: String, required: [true, 'email address is required'], unique: [true, 'There is already an user account with this email address.'] },
     password: { type: String, required: [true, 'password is required'] },
+    //image: {type: String, required: [true, 'image is required'], default: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Placeholder_view_vector.svg"}
+    // might add the ability to upload a patient image in the future
 });
 
 userSchema.pre('save', function(next){

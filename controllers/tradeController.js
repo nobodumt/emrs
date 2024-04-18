@@ -8,7 +8,7 @@ exports.index = (req, res, next)=> {
     .catch(err=>next(err));
 };
 
-// GET /trades/newTrade: send html form for creating new trade
+// GET /trades/newTrade: send html form for creating new appointment (and send user/physician's name)
 exports.new = (req, res, next) => {
     //res.render('./trade/newTrade');
     let id = req.session.user;
