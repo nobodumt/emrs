@@ -13,6 +13,7 @@
             <%if(!user) {%>
                 <a href="/users/login">Login</a>
             <%} else {%>
+                <strong><small>Welcome, <%= user.firstName%> <%= user.lastName%></small></strong>
                 <a href="/trades/newTrade">Create Appointment</a>
                 <!-- <a href="/trades">All Appointments</a>
                 <a href="/patients">All Patients</a> -->

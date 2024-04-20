@@ -1,11 +1,18 @@
 const model = require('../models/trade');
 const User = require('../models/user');
 
-// GET /trades: send all trades to the user
+// GET /trades: send all appointments to the user
 exports.index = (req, res, next)=> {
-    model.find()
+    let id = req.session.user;
+    Promise.all([model.find(), User.findById({id})])
+    .then(results =>{
+        const [trades, user] = results;
+        res.render('./trade/index', {trades});
+    })
+    .catch(err=>next(err)); 
+    /*model.find()
     .then(trades=>res.render('./trade/index', {trades}))
-    .catch(err=>next(err));
+    .catch(err=>next(err));*/
 };
 
 // GET /trades/newTrade: send html form for creating new appointment (and send user/physician's name)
@@ -26,7 +33,8 @@ exports.create = (req, res, next) => {
     trade.save()
     .then((trade)=>{
         req.flash('success', 'Appointment has been created successfully');
-        res.redirect('/trades');
+        res.redirect('/trades/'+trade.id);
+        //res.redirect('/trades');
     })
     .catch(err=>{
         if(err.name === 'ValidationError') {
@@ -90,7 +98,7 @@ exports.delete = (req, res, next) => {
 
     model.findByIdAndDelete(id, {useFindAndModify: false})
     .then(trade=> {
-            res.redirect('/trades');
+            res.redirect('/users/profile');
     })
     .catch(err=>next(err));
 };
