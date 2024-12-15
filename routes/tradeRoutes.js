@@ -5,7 +5,7 @@ const{validateId, validateTrade} = require('../middlewares/validator');
 const router = express.Router();
 
 // GET /trades: send all appointments to the user
-router.get('/', isLoggedIn, isAdmin, controller.index);
+router.get('/', isLoggedIn, /*isAdmin,*/ controller.index);
 
 // GET /trades/newTrade: send html form for creating new trade
 router.get('/newTrade', isLoggedIn, controller.new);

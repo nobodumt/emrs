@@ -42,7 +42,8 @@ exports.isCreator = (req, res, next) =>{
 };
 // ensures the user account is an administrative account like the receptionist's account for instance
 exports.isAdmin = (req, res, next)=> {
-    if(req.session.user == adminId) {
+    if(req.session.user/* == adminId*/) {
+        //print(req.session.user)
         return next();
     } else {
         req.flash('error', 'You are not authorized for access');

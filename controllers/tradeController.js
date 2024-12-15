@@ -4,15 +4,15 @@ const User = require('../models/user');
 // GET /trades: send all appointments to the user
 exports.index = (req, res, next)=> {
     let id = req.session.user;
-    Promise.all([model.find(), User.findById({id})])
+     /* Promise.all([model.find({creator: id}), User.findById({id})])
     .then(results =>{
         const [trades, user] = results;
         res.render('./trade/index', {trades});
-    })
-    .catch(err=>next(err)); 
-    /*model.find()
+    }) 
+    .catch(err=>next(err)); */
+    model.find()
     .then(trades=>res.render('./trade/index', {trades}))
-    .catch(err=>next(err));*/
+    .catch(err=>next(err));
 };
 
 // GET /trades/newTrade: send html form for creating new appointment (and send user/physician's name)

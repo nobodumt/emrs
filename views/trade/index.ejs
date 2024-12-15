@@ -1,48 +1,92 @@
 <%- include('../partials/header.ejs')%>
     <body>
-        <article>
+      <h1>All Appointments</h1>  
+      <article>
+        <section>
+          <h2>Appointments In Progress</h2>
+            <%if(trades.length) {%>
+              <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th></th>
+                </tr>
+                <%trades.forEach(trade=> {%>    
+                  <%if(trade.status === "In Progress"){%>
+                    <tr>
+                      <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
+                      <td><%=trade.size%></td>
+                      <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button>
+                          <%if(trade.status === "Upcoming" ){%>
+                              <button type = "submit">Start</button>
+                              <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete</button>
+                          <%}%>
+                          </form></td>
+                      </tr>
+                    <!-- <ul>
+                      <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
+                     </ul> -->
+                  <%}%>
+                <%});%>
+              </table>
+            <%} else {%>
+              <p>No appointments in progress currently</p>
+            <%}%>  
+        </section>
+
         <section>
             <h2>Upcoming Appointments</h2>
             <%if(trades.length) {%>
-              <%trades.forEach(trade=> {%>    
-                <%if(trade.status === "Upcoming"){%>
-                   <ul>
+              <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th></th>
+                </tr>
+                <%trades.forEach(trade=> {%>    
+                  <%if(trade.status === "Upcoming"){%>
+                    <tr>
+                      <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
+                      <td><%=trade.size%></td>
+                      <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button>
+                      <button type = "submit">Start</button>
+                      <button type = "submit" formmethod = "POST" formaction = "/trades/<%= trade.id%>?_method=DELETE">Delete</button></form></td>
+                    </tr>
+                    <!-- <ul>
                     <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
-                   </ul>
-                <%}%>
-              <%});
-            } else {%>
+                   </ul> -->
+                  <%}%>
+              <%});%>
+            </table>
+            <%} else {%>
                 <p>No upcoming appointments</p>
             <%}%>
         </section>
 
         <section>
-            <h2>Appointments In Progress</h2>
+            <h2>Past Appointments</h2>
             <%if(trades.length) {%>
-                <%trades.forEach(trade=> {%>    
-                  <%if(trade.status === "In Progress"){%>
-                    <ul>
-                      <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
-                     </ul>
-                  <%}%>
-                <%});
-              } else {%>
-                  <p>No currently in progress appointments</p>
-              <%}%>
-        </section>
-
-        <section>
-            <h2>Completed Appointments</h2>
-            <%if(trades.length) {%>
+              <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th></th>
+                </tr>
                 <%trades.forEach(trade=> {%>    
                   <%if(trade.status === "Completed"){%>
-                    <ul>
+                    <tr>
+                      <td><a href = '/trades/<%= trade.id%>'><%= trade.name%></a></td>
+                      <td><%=trade.size%></td>
+                      <td><form><button type = "submit" formmethod = "GET" formaction = "/trades/<%= trade.id%>/edit">Edit</button></form></td>
+                    </tr>
+                    <!-- <ul>
                       <li><a href = "/trades/<%= trade.id%>" <p><%= trade.name%></p></a></li>
-                     </ul>
+                     </ul> -->
                   <%}%>
-                <%});
-              } else {%>
-                  <p>No completed appointments</p>
+                <%});%>
+              </table>
+              <%} else {%>
+                  <p>No past appointments</p>
               <%}%>
         </section>
         </article>
