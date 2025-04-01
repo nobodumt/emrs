@@ -8,24 +8,6 @@
                 <select id="category" name="category" required>
                     <!-- <option hidden disabled selected value>Select a physician or PA</option> -->
                     <option value="<%= user.firstName%> <%= user.lastName%>"><%= user.firstName%> <%= user.lastName%></option>
-                    <%if(trade.category != "Mike Folken, MD") {%>
-                        <option value="Mike Folken, MD">Mike Folken, MD</option>
-                    <%}%>
-                    <%if(trade.category != "Tabitha Holiday, MD") {%>
-                        <option value="Tabitha Holiday, MD">Tabitha Holiday, MD</option>
-                    <%}%>
-                    <%if(trade.category != "Briana Alexander, MD, OB-GYN") {%>
-                        <option value="Briana Alexander, MD, OB-GYN">Briana Alexander, MD, OB-GYN</option>
-                    <%}%>
-                    <%if(trade.category != "Steve Perry MD") {%>
-                        <option value="Steve Perry, MD">Steve Perry, MD</option>
-                    <%}%>
-                    <%if(trade.category != "Marcus Lee, PA") {%>
-                        <option value="Marcus Lee, PA">Marcus Lee, PA</option>
-                    <%}%>
-                    <%if(trade.category != "Brenda Agyemang, MD, OB-GYN") {%>
-                        <option value="Brenda Agyemang, MD, OB-GYN">Brenda Agyemang, MD, OB-GYN</option>
-                    <%}%>
                 </select><br>
                 <br>
                 <label for="name">Patient name </label>
