@@ -3,7 +3,7 @@
     <body>
         <article>
             <h2>Edit Appointment</h2>
-            <form id="new-trade-form" method = "POST" action = "/trades/<%= trade.id%>?_method=PUT">
+            <form id="new-trade-form" method = "POST" action = "/appts/<%= trade.id%>?_method=PUT">
                 <label for="category">Physician/PA </label>
                 <select id="category" name="category" required>
                     <option value="<%= trade.category%>"><%= trade.category%></option>
@@ -16,7 +16,7 @@
                     <%if(trade.category != "Briana Alexander, MD, OB-GYN") {%>
                         <option value="Briana Alexander, MD, OB-GYN">Briana Alexander, MD, OB-GYN</option>
                     <%}%>
-                    <%if(trade.category != "Steve Perry MD") {%>
+                    <%if(trade.category != "Steve Perry, MD") {%>
                         <option value="Steve Perry, MD">Steve Perry, MD</option>
                     <%}%>
                     <%if(trade.category != "Marcus Lee, PA") {%>
