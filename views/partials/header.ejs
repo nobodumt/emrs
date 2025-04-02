@@ -13,8 +13,8 @@
             <%if(!user) {%>
                 <a href="/users/login">Login</a>
             <%} else {%>
-                <a href="/trades/newTrade">Create Appointment</a>
-                <!-- <a href="/trades">All Appointments</a>
+                <a href="/appts/newTrade">Create Appointment</a>
+                <!-- <a href="/appts">All Appointments</a>
                 <a href="/patients">All Patients</a> -->
                 <a href="/users/profile">My Dashboard</a>
                 <strong><a href="/users/profile"><img id="account-user-icon" src="/images/account_user.png" alt="account user icon" width="20" height="20"></a><%= user.firstName%> <%= user.lastName%></strong>
