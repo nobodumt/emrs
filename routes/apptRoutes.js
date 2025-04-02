@@ -1,7 +1,7 @@
 const express = require('express');
-const controller = require('../controllers/tradeController');
+const controller = require('../controllers/apptController');
 const {isLoggedIn, isCreator, isAdmin} = require('../middlewares/auth');
-const{validateId, validateTrade} = require('../middlewares/validator');
+const{validateId, validateAppointment} = require('../middlewares/validator');
 const router = express.Router();
 
 // GET /appts: send all appointments to the user (previously /trades)
@@ -11,7 +11,7 @@ router.get('/', isLoggedIn, /*isAdmin,*/ controller.index);
 router.get('/newTrade', isLoggedIn, controller.new);
 
 //POST /appts: create a new appointment (previously /trades)
-router.post('/', isLoggedIn, validateTrade, controller.create);
+router.post('/', isLoggedIn, validateAppointment, controller.create);
 
 //GET /appts/:id: send details of appointment identified by id (previously /trades/:id)
 router.get('/:id', validateId, controller.show);
@@ -20,7 +20,7 @@ router.get('/:id', validateId, controller.show);
 router.get('/:id/edit', validateId, isLoggedIn, isCreator, controller.edit);
 
 //PUT /appts/:id: update the appointment identified by id (previously /trades/:id)
-router.put('/:id', validateId, isLoggedIn, isCreator, validateTrade, controller.update);
+router.put('/:id', validateId, isLoggedIn, isCreator, validateAppointment, controller.update);
 
 //DELETE /appts/:id, delete the appointment identified by id (previously /trades/:id)
 router.delete('/:id', validateId, isLoggedIn, isCreator, controller.delete);

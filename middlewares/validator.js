@@ -9,7 +9,7 @@ body('password', 'Password must be at least 8 characters and at most 64 characte
 exports.validateLogin = exports.validateLogIn = [body('email', 'Email must be a valid a valid email address').isEmail().trim().escape().normalizeEmail(),
 body('password', 'Password must be at least 8 characters and at most 64 characters').isLength({min: 8, max: 64})];
 
-exports.validateTrade = [body('name', 'Trade name cannot be empty').notEmpty().trim().escape(),
+exports.validateAppointment = [body('name', 'Patient name for the appointment cannot be empty').notEmpty().trim().escape(),
 body('status', 'Status cannot be empty').notEmpty().trim().escape().default("Upcoming"),
 body('details', 'Details/description must be at least 10 characters').isLength({min: 10}).trim().escape(),
 body('category', 'Category cannot be empty').notEmpty().trim()/*.escape()*/, //removed escape because it was not accepting the apostrophe character in the category names
@@ -21,7 +21,7 @@ body('condition').trim().escape()];
 exports.validateId = (req, res, next)=> {
     let id = req.params.id;
     if(!id.match(/^[0-9a-fA-F]{24}$/)) {
-        let err = new Error('Invalid trade id');
+        let err = new Error('Invalid appointment id');
         err.status = 400;
         return next(err);
     } else {

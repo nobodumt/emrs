@@ -1,6 +1,6 @@
 const express = require('express');
 const morgan = require("morgan");
-const tradeRoutes = require('./routes/tradeRoutes');
+const apptRoutes = require('./routes/apptRoutes');
 const mainRoutes = require('./routes/mainRoutes');
 const userRoutes = require('./routes/userRoutes');
 const watchRoutes = require('./routes/watchRoutes');
@@ -52,7 +52,7 @@ app.use((req, res, next)=>{
 
 //set up routes
 app.use('/', mainRoutes);
-app.use('/appts', tradeRoutes);
+app.use('/appts', apptRoutes);
 app.use('/users', userRoutes);
 app.use('/watches', watchRoutes);
 //app.use('/patients', patientRoutes);
