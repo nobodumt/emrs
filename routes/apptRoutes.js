@@ -1,5 +1,5 @@
 const express = require('express');
-const controller = require('../controllers/tradeController');
+const controller = require('../controllers/apptController');
 const {isLoggedIn, isCreator, isAdmin} = require('../middlewares/auth');
 const{validateId, validateAppointment} = require('../middlewares/validator');
 const router = express.Router();
