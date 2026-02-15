@@ -44,7 +44,7 @@ exports.patients = (req, res) => {
     .catch(err=>next(err));
 };
 
-//GET /trades/:id: send details of patient identified by id
+//GET /patients/:id: send details of patient identified by id
 exports.showPatient = (req, res, next) => {
     let id = req.params.id;
     Patient.findById(id)

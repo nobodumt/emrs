@@ -7,8 +7,8 @@ const router = express.Router();
 // GET /appts: send all appointments to the user (previously /trades)
 router.get('/', isLoggedIn, /*isAdmin,*/ controller.index);
 
-// GET /appts/newTrade: send html form for creating new appointment (previously /trades/newTrade)
-router.get('/newTrade', isLoggedIn, controller.new);
+// GET /appts/newAppt: send html form for creating new appointment (previously /trades/newTrade)
+router.get('/newAppt', isLoggedIn, controller.new);
 
 //POST /appts: create a new appointment (previously /trades)
 router.post('/', isLoggedIn, validateAppointment, controller.create);

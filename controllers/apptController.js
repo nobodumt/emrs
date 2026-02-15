@@ -15,13 +15,13 @@ exports.index = (req, res, next)=> {
     .catch(err=>next(err));
 };
 
-// GET /appts/newTrade: send html form for creating new appointment (and send user/physician's name) (previously /trades/newTrade)
+// GET /appts/newAppt: send html form for creating new appointment (and send user/physician's name) (previously /trades/newTrade)
 exports.new = (req, res, next) => {
-    //res.render('./appt/newTrade');
+    //res.render('./appt/newAppt');
     let id = req.session.user;
     User.findById(id)
     .then(user=>{
-            return res.render('./appt/newTrade', {user});
+            return res.render('./appt/newAppt', {user});
     })
     .catch(err=>next(err));
 };
